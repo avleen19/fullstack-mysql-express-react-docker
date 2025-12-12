@@ -1,70 +1,82 @@
-DevOps Full Stack Website
+🌐 Full Stack Dockerized Web App
 
-This is a simple full-stack project that uses a frontend, backend, and MySQL database, all running through Docker.
-The website shows basic server information by calling an API from the backend.
+This project is a simple full-stack application built with a Frontend (HTML/JS), Backend (Node.js + Express), and a MySQL Database.
+The entire application runs using Docker, making setup easy and consistent across all systems.
 
-What this project does
+🚀 What This Project Does
 
-The frontend shows a simple webpage.
+Shows a webpage served from the frontend container
 
-The backend (Node + Express) provides an API that returns information like hostname, platform, CPU count, and IP address.
+Fetches data from the backend API
 
-The frontend fetches this information and displays it.
+Stores and retrieves messages from a MySQL database
 
-A MySQL database is included for storing simple data.
+Runs all services inside Docker containers
 
-Everything runs inside Docker containers, so no installation of Node or MySQL is needed on your machine.
+Demonstrates basic full-stack + DevOps concepts
 
-Why Docker is used
+🧩 Why Docker?
 
-To run the project without installing Node.js or MySQL manually
+Normally you would need to install:
 
-To make the setup the same for everyone
+Node.js
 
-To keep frontend, backend, and database as separate services
+MySQL
 
-Makes starting the project as simple as running one command
+NPM packages
 
-Earlier the website worked without Docker, but Docker makes it more professional, portable, and production-like.
+Local servers
 
-How the project works (simple explanation)
+With Docker:
 
-Docker Compose starts three services:
+No installations needed
 
-Frontend (Nginx)
+Environment works the same for everyone
 
-Backend (Node.js)
+Easy to start and stop services
 
-Database (MySQL)
+Professional structure like real DevOps deployments
 
-The backend connects to the MySQL database.
+Containers keep backend, frontend, and database separated
 
-The frontend sends a request to the backend API.
+This project originally worked without Docker, but containerizing it makes it cleaner, safer, and easier to deploy anywhere.
 
-The backend returns server information.
+🔄 How It Works 
 
-The frontend displays that information on the webpage.
+Frontend sends a request to the backend API.
 
-Features
+Backend connects to the MySQL database to store or get data.
 
-Backend API returns system details
+Backend returns the response.
 
-Simple frontend UI
+Frontend displays the information on the page.
+
+All three—Frontend, Backend, and Database—run in separate Docker containers using Docker Compose.
+
+⭐ Features
+
+Simple UI to interact with backend
+
+API to get and add messages
 
 MySQL database with sample data
 
-Fully containerized using Docker
+Fully containerized setup
 
-Purpose of this project
+Clean and beginner-friendly code
 
-This project helps learn:
+Great for DevOps learning and practice
 
-Full-stack development
+🎯 Purpose of This Project
 
-How backend and database connect
+This project is useful for learning:
 
-How frontend talks to backend
+How full-stack systems are structured
 
-How Docker is used in real projects
+How frontend, backend, and database communicate
 
-Basics of DevOps workflows
+How Docker simplifies deployment
+
+Basics of microservice-like architecture
+
+DevOps workflows using Docker Compose
