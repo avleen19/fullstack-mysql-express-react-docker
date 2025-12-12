@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3-Tier Docker App</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #eef2f7; padding: 40px; }
+    h1 { text-align: center; margin-bottom: 20px; color: #333; }
+    #app { max-width: 650px; margin: auto; background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    #msgInput { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 16px; }
+    button { padding: 10px 15px; font-size: 15px; border: none; border-radius: 6px; cursor: pointer; margin-bottom: 15px; }
+    #loadBtn { background: #3498db; color: #fff; }
+    #createBtn { background: #2ecc71; color: #fff; }
+    .card { background: #f8f9fc; padding: 15px; margin: 8px 0; border-radius: 8px; display: flex; justify-content: space-between; border-left: 4px solid #3498db; }
+    .idBox { font-weight: bold; color: #2c3e50; }
+    .msgBox { color: #555; }
+  </style>
+</head>
+<body>
+  <h1>🚀 3-Tier Docker App</h1>
+
+  <div id="app">
+    <input id="msgInput" placeholder="Enter new message..." />
+    <button id="createBtn" onclick="create()">Create Message</button>
+    <button id="loadBtn" onclick="load()">Load All Messages</button>
+    <div id="list"></div>
+  </div>
+
+  <script>
+    const API = "http://localhost:5000/info";
+
+    async function load() {
+      const res = await fetch(API);
+      const data = await res.json();
+
+      let html = "";
+      data.forEach(item => {
+        html += `
+          <div class="card">
+            <div class="idBox">ID: ${item.id}</div>
+            <div class="msgBox">${item.msg}</div>
+          </div>`;
+      });
+
+      document.getElementById("list").innerHTML = html;
+    }
+
+    async function create() {
+      const msg = document.getElementById("msgInput").value;
+      if (!msg) return alert("Enter a message");
+
+      await fetch(API, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ msg })
+      });
+
+      document.getElementById("msgInput").value = "";
+      load();
+    }
+
+    load();
+  </script>
+</body>
+</html>

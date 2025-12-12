@@ -1,0 +1,12 @@
+DROP DATABASE IF EXISTS testdb;
+CREATE DATABASE testdb;
+USE testdb;
+
+DROP TABLE IF EXISTS info;
+
+CREATE TABLE info (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    msg VARCHAR(255)
+);
+
+INSERT INTO info (msg) VALUES ("Hello From MySQL Database!");
